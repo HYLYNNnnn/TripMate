@@ -1,0 +1,164 @@
+{
+  "itineraryId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "days": [
+    {
+      "date": "2025-10-02",
+      "stops": [
+        {
+          "order": 1,
+          "place": "Golden Gate Bridge",
+          "arrivalLocal": "09:00",
+          "departLocal": "10:00",
+          "stayMinutes": 60,
+          "note": "Start the trip with a scenic view of the bridge."
+        },
+        {
+          "order": 2,
+          "place": "Palace of Fine Arts",
+          "arrivalLocal": "10:30",
+          "departLocal": "11:45",
+          "stayMinutes": 75,
+          "note": "Enjoy architecture and take photos by the lagoon."
+        },
+        {
+          "order": 3,
+          "place": "Fisherman's Wharf",
+          "arrivalLocal": "12:15",
+          "departLocal": "14:00",
+          "stayMinutes": 105,
+          "note": "Lunch and stroll around the shops."
+        }
+      ]
+    },
+    {
+      "date": "2025-10-03",
+      "stops": [
+        {
+          "order": 1,
+          "place": "Alcatraz Island",
+          "arrivalLocal": "09:30",
+          "departLocal": "12:00",
+          "stayMinutes": 150,
+          "note": "Take the morning ferry and explore the historic prison."
+        },
+        {
+          "order": 2,
+          "place": "Coit Tower",
+          "arrivalLocal": "12:45",
+          "departLocal": "13:45",
+          "stayMinutes": 60,
+          "note": "Get panoramic views of the city."
+        },
+        {
+          "order": 3,
+          "place": "Chinatown",
+          "arrivalLocal": "14:15",
+          "departLocal": "15:30",
+          "stayMinutes": 75,
+          "note": "Walk through the bustling streets and shops."
+        }
+      ]
+    },
+    {
+      "date": "2025-10-04",
+      "stops": [
+        {
+          "order": 1,
+          "place": "Golden Gate Park",
+          "arrivalLocal": "08:45",
+          "departLocal": "11:15",
+          "stayMinutes": 150,
+          "note": "Relax at the park and enjoy the morning."
+        },
+        {
+          "order": 2,
+          "place": "California Academy of Sciences",
+          "arrivalLocal": "11:30",
+          "departLocal": "13:30",
+          "stayMinutes": 120,
+          "note": "Explore exhibits and visit the planetarium."
+        },
+        {
+          "order": 3,
+          "place": "Painted Ladies",
+          "arrivalLocal": "14:00",
+          "departLocal": "15:00",
+          "stayMinutes": 60,
+          "note": "Snap iconic photos of the Victorian houses."
+        }
+      ]
+    },
+    {
+      "date": "2025-10-05",
+      "stops": [
+        {
+          "order": 1,
+          "place": "Muir Woods National Monument",
+          "arrivalLocal": "09:15",
+          "departLocal": "11:30",
+          "stayMinutes": 135,
+          "note": "Walk among ancient redwoods."
+        },
+        {
+          "order": 2,
+          "place": "Sausalito Ferry",
+          "arrivalLocal": "12:00",
+          "departLocal": "13:00",
+          "stayMinutes": 60,
+          "note": "Enjoy a ferry ride and explore Sausalito."
+        },
+        {
+          "order": 3,
+          "place": "Ghirardelli Square",
+          "arrivalLocal": "14:00",
+          "departLocal": "15:15",
+          "stayMinutes": 75,
+          "note": "Taste chocolate and explore nearby shops."
+        }
+      ]
+    },
+    {
+      "date": "2025-10-06",
+      "stops": [
+        {
+          "order": 1,
+          "place": "San Francisco Museum of Modern Art (SFMOMA)",
+          "arrivalLocal": "10:00",
+          "departLocal": "12:00",
+          "stayMinutes": 120,
+          "note": "Visit the modern art exhibits."
+        },
+        {
+          "order": 2,
+          "place": "Union Square",
+          "arrivalLocal": "12:30",
+          "departLocal": "14:00",
+          "stayMinutes": 90,
+          "note": "Shopping and lunch in the city center."
+        },
+        {
+          "order": 3,
+          "place": "Twin Peaks",
+          "arrivalLocal": "14:30",
+          "departLocal": "15:30",
+          "stayMinutes": 60,
+          "note": "End the trip with a panoramic view of the Bay Area."
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "code": "PLACE_CLOSED",
+      "message": "Exploratorium is closed for renovation on 2025-10-04.",
+      "details": {
+        "additionalProp1": {
+          "place": "Exploratorium",
+          "closureDates": [
+            "2025-10-04"
+          ]
+        }
+      }
+    }
+  ]
+}
