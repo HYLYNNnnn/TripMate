@@ -5,10 +5,12 @@ import PageContainer from "../../layouts/PageContainer";
 import AttractionsList from "../../components/attraction/AttractionsList";
 import { MapCanvas, MapPlacePopup, PlaceMarker } from "../../components/maps";
 import useMapMarkers from "../../hooks/useMapMarkers";
-import { getItineraryById, getItineraryRecommendations, updateInterest, planItinerary } from "../../api";
+import { getItineraryById, getItineraryRecommendations, getSavedPlan, updateInterest, planItinerary } from "../../api";
 import { normalizePlaceCoordinates } from "../../utils/map";
 import { markerIcon, blueMarkerIcon, redMarkerIcon } from "../../assets";
 import ItineraryTimeline from "../../components/ItineraryTimeline";
+import { DEMO_MODE } from "../../config";
+import DemoMap from "../../components/demo/DemoMap";
 
 const DEFAULT_CENTER = { lat: 37.7749, lng: -122.4194 };
 
@@ -74,12 +76,21 @@ export default function PlanDetail() {
         setErr(null);
         setAttractions([]);
         clearMarkers();
-        const [itineraryData, recommendationsData] = await Promise.all([
-          getItineraryById(id),
-          getItineraryRecommendations(id, 0, 50),
+        let itineraryData = await getItineraryById(id);
+        for (let attempt = 0; itineraryData?.aiMetadata?.generation_pending && attempt < 80; attempt++) {
+          if (cancelled) return;
+          await new Promise(resolve => setTimeout(resolve, 1500));
+          if (cancelled) return;
+          itineraryData = await getItineraryById(id);
+        }
+        if (itineraryData?.aiMetadata?.generation_pending) throw new Error("Recommendations are still being prepared. Refresh this trip in a moment.");
+        if (itineraryData?.aiMetadata?.generation_error) throw new Error("Recommendations could not be prepared. Please try creating another trip.");
+        const [recommendationsData, savedPlan] = await Promise.all([
+          getItineraryRecommendations(id, 0, 50), getSavedPlan(id),
         ]);
         // The API helpers do not support aborting requests. Ignore obsolete results.
         if (cancelled) return;
+        setPlan(savedPlan || undefined);
         setDestination(itineraryData?.destinationCity || "");
         const transformedAttractions = (recommendationsData?.items || []).map((place, index) => {
           const location = normalizePlaceCoordinates(place);
@@ -136,6 +147,7 @@ export default function PlanDetail() {
 
     try {
       await updateInterest(id, placeId, pinned);
+      if (version === itineraryVersion.current) setPlan(undefined);
     } catch (error) {
       if (version !== itineraryVersion.current) return;
       // Revert this place only; other places may have been successfully updated meanwhile.
@@ -154,12 +166,15 @@ export default function PlanDetail() {
   const togglePlanDisplay = async () => {
     if (pendingInterests.current.size || loading) return;
     const version = itineraryVersion.current;
-    if (!displayPlan) {
+    if (!displayPlan && !plan) {
+      if (!interests.length) {
+        setErr(new Error("Select at least one place to visit before generating a plan."));
+        return;
+      }
       try {
         setLoading(true);
         setErr(null);
         const planRequest = {
-          travelMode: "DRIVING",
           dailyStart: "09:00",
           dailyEnd: "20:00",
           avoidCrowds: false,
@@ -182,7 +197,7 @@ export default function PlanDetail() {
   return (
     <PageContainer maxWidth={false}>
       <Box
-        sx={{ display: "flex", overflow: "hidden" }}
+        sx={{ display: "flex", overflow: "hidden", flexDirection: { xs: "column", md: "row" } }}
         height={{ xs: "calc(100vh - 56px)", sm: "calc(100vh - 64px)" }}
       >
         <Box sx={{ display: "flex", flexDirection: "column", flex: 1, px: 4 }}>
@@ -208,7 +223,7 @@ export default function PlanDetail() {
               onClick={togglePlanDisplay}
               disabled={loading || updatingInterests > 0}
             >
-              {displayPlan ? "Back" : "Generate Plan"}
+              {displayPlan ? "Back" : plan ? "View Plan" : "Generate Plan"}
             </Button>
           </Box>
           <Box
@@ -247,13 +262,15 @@ export default function PlanDetail() {
         </Box>
 
         <Box
-          style={{
-            width: "60%",
+          sx={{
+            width: { xs: "100%", md: "55%" },
+            minHeight: { xs: 320, md: 0 },
+            height: { xs: "40%", md: "100%" },
             transition: "width 280ms ease-in-out",
             flexShrink: 0,
           }}
         >
-          <MapCanvas
+          {DEMO_MODE ? <DemoMap places={attractions} selected={selectedAttraction} onSelect={attractionClickHandler} /> : <MapCanvas
             center={mapCenter}
             onLoad={onMapLoad}
             height={{ xs: "calc(100vh - 56px)", sm: "calc(100vh - 64px)" }}
@@ -285,7 +302,7 @@ export default function PlanDetail() {
                 onClose={() => setSelected(null)}
               />
             )}
-          </MapCanvas>
+          </MapCanvas>}
         </Box>
       </Box>
     </PageContainer>

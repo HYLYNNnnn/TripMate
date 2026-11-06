@@ -20,7 +20,7 @@ export default function useMapMarkers(mapRef) {
   }, []);
 
   const fitToPlaces = useCallback((places) => {
-    if (!mapRef.current || !places?.length) return;
+    if (!mapRef.current || !places?.length || !window.google?.maps) return;
     const bounds = new window.google.maps.LatLngBounds();
     places.forEach(p => p?.location && bounds.extend(p.location));
     mapRef.current.fitBounds(bounds);

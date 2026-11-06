@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getAuthToken, removeAuthToken, isTokenExpired } from "../lib/auth";
+import { toItineraryRequest } from "./tripRequest";
 
 const base = (process.env.REACT_APP_API_BASE || "/api").replace(/\/+$/, "");
 const useMockData = process.env.REACT_APP_USE_MOCK_DATA === "true";
@@ -57,8 +58,9 @@ export async function getTripPlan(payload) {
 
 export async function createTrip(payload) {
   // Real backend call - JWT automatically added by interceptor
-  const res = await api.post('/trips/setup', payload);
-  return res.data;
+  const res = await api.post('/itineraries', toItineraryRequest(payload));
+  if (!res.data?.itineraryId) throw new Error("The server did not return a trip ID.");
+  return { success: true, data: { ...res.data, id: res.data.itineraryId } };
 
   // Mock implementation for development
   // return new Promise((resolve) => {
@@ -290,6 +292,16 @@ export async function addInterest(itineraryId, placeId, pinned = false) {
 export async function planItinerary(itineraryId, planRequest = {}) {
   const res = await api.post(`/itineraries/${itineraryId}/plan`, planRequest);
   return res.data;
+}
+
+export async function getSavedPlan(itineraryId) {
+  try {
+    const response = await api.get(`/itineraries/${itineraryId}/plan`);
+    return response.data;
+  } catch (error) {
+    if (error?.response?.status === 404) return null;
+    throw error;
+  }
 }
 
 export async function updateInterest(itineraryId, placeId, pinned) {

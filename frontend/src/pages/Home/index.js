@@ -7,6 +7,7 @@ import bg from "../../assets/bg.png";
 
 import { useAuth } from "../../auth/AuthContext";
 import LoginModal from "../../components/auth/LoginModal";
+import { DEMO_MODE } from "../../config";
 
 export default function Home() {
   const { user } = useAuth();
@@ -32,13 +33,13 @@ export default function Home() {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'bottom',
       }}
-      maxWidth="false"
+      maxWidth={false}
     >
       <Typography variant="h2" fontWeight={800} gutterBottom>
         Your journey starts here
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 6 }}>
-        sign in now
+        {DEMO_MODE ? "Try a sample San Francisco trip. Sign in to save your plans." : "Explore places you love. Build a trip that feels like you."}
       </Typography>
       
       {user ? (

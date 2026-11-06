@@ -8,9 +8,11 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import UserProfile from "./UserProfile";
 import LoginModal from "./auth/LoginModal";
+import { DEMO_MODE } from "../config";
+import Chip from "@mui/material/Chip";
 import { useAuth } from "../auth/AuthContext";
 
-const TITLE = "Travel Planner";
+const TITLE = "TripMate";
 export default function Header() {
   const { user, logout } = useAuth();
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -48,6 +50,7 @@ export default function Header() {
           <Typography variant="h3" sx={{ flexGrow: 1, fontWeight: 700 }}>
             {title}
           </Typography>
+          {DEMO_MODE && <Chip label="Demo" size="small" sx={{ mr: 2 }} />}
 
           {user ? (
             <>

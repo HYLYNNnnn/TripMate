@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import PlanDetail from "./index";
-import { getItineraryById, getItineraryRecommendations, updateInterest, planItinerary } from "../../api";
+import { getItineraryById, getItineraryRecommendations, getSavedPlan, updateInterest, planItinerary } from "../../api";
 
 let mockTripId;
 let mockSearchParams;
@@ -41,6 +41,7 @@ jest.mock("../../components/ItineraryTimeline", () => ({
 jest.mock("../../api", () => ({
   getItineraryById: jest.fn(),
   getItineraryRecommendations: jest.fn(),
+  getSavedPlan: jest.fn(),
   updateInterest: jest.fn(),
   planItinerary: jest.fn(),
 }));
@@ -60,12 +61,29 @@ beforeEach(() => {
   mockSearchParams = new URLSearchParams();
   getItineraryById.mockImplementation(async (id) => ({ destinationCity: id }));
   getItineraryRecommendations.mockImplementation(async (id) => places(id));
+  getSavedPlan.mockResolvedValue(null);
   updateInterest.mockResolvedValue({});
   planItinerary.mockResolvedValue({ itineraryId: "first" });
   jest.spyOn(window, "alert").mockImplementation(() => {});
 });
 
 afterEach(() => jest.restoreAllMocks());
+
+test("a saved plan can be viewed without generating it again", async () => {
+  getSavedPlan.mockResolvedValue({ itineraryId: "first" });
+  render(<PlanDetail />);
+  fireEvent.click(await screen.findByText("View Plan"));
+  expect(screen.getByText("Generated plan first")).toBeInTheDocument();
+  expect(planItinerary).not.toHaveBeenCalled();
+});
+
+test("planning without selected places explains what to do without calling the backend", async () => {
+  render(<PlanDetail />);
+  await screen.findByText("first A: unselected");
+  fireEvent.click(screen.getByText("Generate Plan"));
+  expect(screen.getByText(/Select at least one place to visit/)).toBeInTheDocument();
+  expect(planItinerary).not.toHaveBeenCalled();
+});
 
 test("one failed pin update preserves another successful selection and locks duplicate writes", async () => {
   const firstPin = deferred();

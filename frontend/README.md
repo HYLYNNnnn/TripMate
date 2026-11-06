@@ -1,6 +1,6 @@
 # Trip Mate frontend
 
-React 19 frontend using Material UI 7, React Router 7, Axios and Google Maps. This is the frontend portion of a collaborative project; the backend is maintained outside this repository's scope.
+React 19 frontend using Material UI 7, React Router 7, Axios and Google Maps. The root repository now also includes an adapted team backend; see the [root README](../README.md) for the complete local demo.
 
 ## Development
 
@@ -37,4 +37,6 @@ The output is generated in `build/`. For deployment, configure API routing and a
 - Recommendation lists, pinned interests and itinerary planning requests.
 - A centralized API layer, an OpenAPI snapshot and development mock fixtures.
 
-Known review findings are recorded in [前端检查说明](../前端检查说明.zh-CN.md). The progress endpoint definition alone is not evidence that the current UI performs asynchronous polling; its current setup screen uses a fixed countdown.
+Set `REACT_APP_DEMO_MODE=true` together with the backend's `demo` profile for sample destination search and Leaflet/OpenStreetMap, without a Google key. Keep `REACT_APP_USE_MOCK_DATA=false`: the complete demo uses real local API requests rather than substituting successful frontend fixtures for failed requests.
+
+The setup countdown controls navigation. The detail page polls the backend's `generation_pending` metadata until recommendations are ready; previously saved plans can be reopened without generating them again. Known review findings and integration results are recorded in [前端检查说明](../前端检查说明.zh-CN.md).

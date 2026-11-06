@@ -1,0 +1,365 @@
+{
+  "success": true,
+  "data": [
+    {
+      "name": "Golden Gate Bridge",
+      "category": "Historical Site",
+      "place_id": "ChIJw____96GhYARCVVwg5cT7c0",
+      "location": {
+        "lat": 37.8199109,
+        "lng": -122.4785598
+      },
+      "formatted_address": "Golden Gate Brg, San Francisco, CA, United States",
+      "rating": 4.8,
+      "user_ratings_total": 83634
+    },
+    {
+      "name": "Alcatraz Island",
+      "category": "Historical Site",
+      "place_id": "ChIJmRyMs_mAhYARpViaf6JEWNE",
+      "location": {
+        "lat": 37.8269775,
+        "lng": -122.4229555
+      },
+      "formatted_address": "San Francisco, CA 94133, United States",
+      "rating": 4.7,
+      "user_ratings_total": 43174
+    },
+    {
+      "name": "Fisherman's Wharf",
+      "category": "Neighborhood",
+      "place_id": "ChIJueOuefqAhYARapAU-YtbztA",
+      "location": {
+        "lat": 37.8085771,
+        "lng": -122.4125282
+      },
+      "formatted_address": "Fisherman's Wharf, San Francisco, CA, USA",
+      "rating": null,
+      "user_ratings_total": null
+    },
+    {
+      "name": "Chinatown",
+      "category": "Neighborhood",
+      "place_id": "ChIJHYqlWIuAhYARrIAPZpIwnyg",
+      "location": {
+        "lat": 37.7944675,
+        "lng": -122.4048082
+      },
+      "formatted_address": "Chinatown, San Francisco, CA, USA",
+      "rating": null,
+      "user_ratings_total": null
+    },
+    {
+      "name": "Lombard Street",
+      "category": "Viewpoint",
+      "place_id": "ChIJl62Bq92AhYARrLLC3ZcLL8Q",
+      "location": {
+        "lat": 37.8020179,
+        "lng": -122.4195579
+      },
+      "formatted_address": "Lombard St, San Francisco, CA, USA",
+      "rating": 4.6,
+      "user_ratings_total": 2959
+    },
+    {
+      "name": "Palace of Fine Arts",
+      "category": "Architecture",
+      "place_id": "ChIJgUYUENWGhYAR9awaWIrbYOk",
+      "location": {
+        "lat": 37.8029308,
+        "lng": -122.4484231
+      },
+      "formatted_address": "3601 Lyon St, San Francisco, CA 94123, United States",
+      "rating": 4.8,
+      "user_ratings_total": 25012
+    },
+    {
+      "name": "Exploratorium",
+      "category": "Museum",
+      "place_id": "ChIJk2vl5NSGhYARwPGvs_ubIws",
+      "location": {
+        "lat": 37.8016649,
+        "lng": -122.397348
+      },
+      "formatted_address": "Pier 15 Embarcadero at, Green St, San Francisco, CA 94111, United States",
+      "rating": 4.7,
+      "user_ratings_total": 8301
+    },
+    {
+      "name": "California Academy of Sciences",
+      "category": "Museum",
+      "place_id": "ChIJIUT7rEOHhYARucp3wM-HhBs",
+      "location": {
+        "lat": 37.7698646,
+        "lng": -122.4660947
+      },
+      "formatted_address": "55 Music Concourse Dr, San Francisco, CA 94118, United States",
+      "rating": 4.6,
+      "user_ratings_total": 5666
+    },
+    {
+      "name": "Muir Woods National Monument",
+      "category": "Natural Landmark",
+      "place_id": "ChIJrWJnvbSRhYAR-a__aHZY_3o",
+      "location": {
+        "lat": 37.8970199,
+        "lng": -122.5811177
+      },
+      "formatted_address": "Mill Valley, CA 94941, United States",
+      "rating": 4.8,
+      "user_ratings_total": 19500
+    },
+    {
+      "name": "Dolores Park",
+      "category": "Park",
+      "place_id": "ChIJp3CqeRd-j4ARYI0i8e_kGKY",
+      "location": {
+        "lat": 37.7602015,
+        "lng": -122.4267959
+      },
+      "formatted_address": "Dolores St &, 19th St, San Francisco, CA 94114, United States",
+      "rating": 4.7,
+      "user_ratings_total": 15886
+    },
+    {
+      "name": "Union Square",
+      "category": "Shopping",
+      "place_id": "ChIJu0D9046AhYARurZMmbXZQf4",
+      "location": {
+        "lat": 37.787552,
+        "lng": -122.4066183
+      },
+      "formatted_address": "Union Square, San Francisco, CA, USA",
+      "rating": null,
+      "user_ratings_total": null
+    },
+    {
+      "name": "Painted Ladies",
+      "category": "Architecture",
+      "place_id": "ChIJuX92JKWAhYARxVmeb8DQIYQ",
+      "location": {
+        "lat": 37.7762528,
+        "lng": -122.4327556
+      },
+      "formatted_address": "San Francisco, CA 94117, United States",
+      "rating": 4.4,
+      "user_ratings_total": 26735
+    },
+    {
+      "name": "The Exploratorium's After Dark",
+      "category": "Entertainment",
+      "place_id": "ChIJk2vl5NSGhYARwPGvs_ubIws",
+      "location": {
+        "lat": 37.8016649,
+        "lng": -122.397348
+      },
+      "formatted_address": "Pier 15 Embarcadero at, Green St, San Francisco, CA 94111, United States",
+      "rating": 4.7,
+      "user_ratings_total": 8301
+    },
+    {
+      "name": "Sausalito Ferry",
+      "category": "Transportation Hub",
+      "place_id": "ChIJhy1PB0WEhYAR8rPFniJvSgk",
+      "location": {
+        "lat": 37.856463,
+        "lng": -122.47865
+      },
+      "formatted_address": "Sausalito, CA 94965, United States",
+      "rating": 4.2,
+      "user_ratings_total": 301
+    },
+    {
+      "name": "Golden Gate Park",
+      "category": "Park",
+      "place_id": "ChIJY_dFYHKHhYARMKc772iLvnE",
+      "location": {
+        "lat": 37.7689203,
+        "lng": -122.482977
+      },
+      "formatted_address": "San Francisco, CA, United States",
+      "rating": 4.8,
+      "user_ratings_total": 43378
+    },
+    {
+      "name": "The Walt Disney Family Museum",
+      "category": "Museum",
+      "place_id": "ChIJ5f7ZKtiGhYAR9WaYFS6bH1U",
+      "location": {
+        "lat": 37.8013783,
+        "lng": -122.4586431
+      },
+      "formatted_address": "104 Montgomery St, San Francisco, CA 94129, United States",
+      "rating": 4.6,
+      "user_ratings_total": 3962
+    },
+    {
+      "name": "AT&T Park Tour",
+      "category": "Sports Venue",
+      "place_id": "ChIJ_T25cNd_j4ARehGmHe0pT84",
+      "location": {
+        "lat": 37.7784136,
+        "lng": -122.3892168
+      },
+      "formatted_address": "24 Willie Mays Plaza, San Francisco, CA 94107, United States",
+      "rating": 4.7,
+      "user_ratings_total": 30898
+    },
+    {
+      "name": "Coit Tower",
+      "category": "Viewpoint",
+      "place_id": "ChIJAQAAQIyAhYARRN3yIQG4hd4",
+      "location": {
+        "lat": 37.8023949,
+        "lng": -122.4058222
+      },
+      "formatted_address": "1 Telegraph Hill Blvd, San Francisco, CA 94133, United States",
+      "rating": 4.5,
+      "user_ratings_total": 15055
+    },
+    {
+      "name": "Ghirardelli Square",
+      "category": "Food & Dining",
+      "place_id": "ChIJvXl2weCAhYARjSxnhzrBfNc",
+      "location": {
+        "lat": 37.8059485,
+        "lng": -122.4229383
+      },
+      "formatted_address": "900 North Point St F301, San Francisco, CA 94109, United States",
+      "rating": 4.5,
+      "user_ratings_total": 28803
+    },
+    {
+      "name": "San Francisco Museum of Modern Art (SFMOMA)",
+      "category": "Art Gallery",
+      "place_id": "ChIJ53I1Yn2AhYAR_Vl1vNygfMg",
+      "location": {
+        "lat": 37.7857324,
+        "lng": -122.4010332
+      },
+      "formatted_address": "151 3rd St, San Francisco, CA 94103, United States",
+      "rating": 4.6,
+      "user_ratings_total": 15862
+    },
+    {
+      "name": "Aquarium of the Bay",
+      "category": "Museum",
+      "place_id": "ChIJr6OmefyAhYAR-h8_vW9p5GQ",
+      "location": {
+        "lat": 37.8086487,
+        "lng": -122.4093299
+      },
+      "formatted_address": "PIER 39 The Embarcadero &, Beach St, San Francisco, CA 94133, United States",
+      "rating": 4.1,
+      "user_ratings_total": 5978
+    },
+    {
+      "name": "The Mission District Murals",
+      "category": "Cultural Site",
+      "place_id": "ChIJg8uN3iJ-j4AR3W84uTzK31E",
+      "location": {
+        "lat": 37.7629824,
+        "lng": -122.4207943
+      },
+      "formatted_address": "90 Clarion Alley, San Francisco, CA 94110, United States",
+      "rating": 4.5,
+      "user_ratings_total": 1277
+    },
+    {
+      "name": "The Castro Theatre",
+      "category": "Entertainment",
+      "place_id": "ChIJeWH4Txt-j4ARJZQ5pivU-hQ",
+      "location": {
+        "lat": 37.7620333,
+        "lng": -122.4347591
+      },
+      "formatted_address": "429 Castro St, San Francisco, CA 94114, United States",
+      "rating": 4.7,
+      "user_ratings_total": 2555
+    },
+    {
+      "name": "Crissy Field",
+      "category": "Outdoor Activity",
+      "place_id": "ChIJVbMlhdyGhYARADaqASKRFVs",
+      "location": {
+        "lat": 37.8040257,
+        "lng": -122.4650165
+      },
+      "formatted_address": "San Francisco, CA 94129, United States",
+      "rating": 4.7,
+      "user_ratings_total": 5899
+    },
+    {
+      "name": "Mission Dolores Park",
+      "category": "Park",
+      "place_id": "ChIJp3CqeRd-j4ARYI0i8e_kGKY",
+      "location": {
+        "lat": 37.7602015,
+        "lng": -122.4267959
+      },
+      "formatted_address": "Dolores St &, 19th St, San Francisco, CA 94114, United States",
+      "rating": 4.7,
+      "user_ratings_total": 15886
+    },
+    {
+      "name": "San Francisco Cable Car Museum",
+      "category": "Museum",
+      "place_id": "ChIJX1oMlvKAhYARNZquwetszd8",
+      "location": {
+        "lat": 37.7946256,
+        "lng": -122.4115331
+      },
+      "formatted_address": "1201 Mason St, San Francisco, CA 94108, United States",
+      "rating": 4.7,
+      "user_ratings_total": 6532
+    },
+    {
+      "name": "Ocean Beach",
+      "category": "Beach",
+      "place_id": "ChIJY8btaZSHhYAR_GctC494Hoo",
+      "location": {
+        "lat": 37.75939210000001,
+        "lng": -122.510734
+      },
+      "formatted_address": "Ocean Beach, San Francisco, CA, United States",
+      "rating": 4.7,
+      "user_ratings_total": 1959
+    },
+    {
+      "name": "Fort Point National Historic Site",
+      "category": "Historical Site",
+      "place_id": "ChIJ_fRRLeqGhYAROWsCl5027X8",
+      "location": {
+        "lat": 37.8106117,
+        "lng": -122.47709
+      },
+      "formatted_address": "201 Marine Dr, San Francisco, CA 94129, United States",
+      "rating": 4.8,
+      "user_ratings_total": 3745
+    },
+    {
+      "name": "Yerba Buena Gardens",
+      "category": "Park",
+      "place_id": "ChIJCUsDnIeAhYARWCBpPTrHJpQ",
+      "location": {
+        "lat": 37.7849884,
+        "lng": -122.4023514
+      },
+      "formatted_address": "750 Howard St, San Francisco, CA 94103, United States",
+      "rating": 4.6,
+      "user_ratings_total": 4366
+    },
+    {
+      "name": "Twin Peaks",
+      "category": "Viewpoint",
+      "place_id": "ChIJt3HwrOJ9j4ARbW6uAcmhz7I",
+      "location": {
+        "lat": 37.7529149,
+        "lng": -122.4474131
+      },
+      "formatted_address": "501 Twin Peaks Blvd, San Francisco, CA 94114, United States",
+      "rating": 4.7,
+      "user_ratings_total": 13411
+    }
+  ]
+}

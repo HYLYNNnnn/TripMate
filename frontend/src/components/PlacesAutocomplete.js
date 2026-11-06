@@ -3,6 +3,8 @@ import { Box, Chip, TextField, Autocomplete } from "@mui/material";
 import { levelFromPrediction, levelLabel, defaultFilterOptions } from "../utils/map";
 import usePlacesPredictions from "../hooks/usePlacesPredictions";
 import usePlaceDetails from "../hooks/usePlaceDetails";
+import { DEMO_MODE } from "../config";
+import DemoDestinationSearch from "./demo/DemoDestinationSearch";
 
 // UI: Option item renderer
 function OptionItem({ props, option }) {
@@ -51,7 +53,11 @@ function OptionItem({ props, option }) {
  * - debounceMs: Debounce delay in milliseconds
  * - sx / size / variant: Passed through to MUI
  */
-export default function PlacesAutocomplete({
+export default function PlacesAutocomplete(props) {
+  return DEMO_MODE ? <DemoDestinationSearch {...props} /> : <GooglePlacesAutocomplete {...props} />;
+}
+
+function GooglePlacesAutocomplete({
   onSelect,
   onClear,
   placeholder = "Where to?",

@@ -19,11 +19,11 @@ export default function UserProfile() {
   // Extract user data from JWT token
   const displayName = user.firstName && user.lastName 
     ? `${user.firstName} ${user.lastName}` 
-    : user.username || user.email;
+    : user.username || user.email || user.sub;
   
   const initials = user.firstName && user.lastName
     ? `${user.firstName[0]}${user.lastName[0]}`
-    : (user.username || user.email || "U").slice(0, 1);
+    : (user.username || user.email || user.sub || "U").slice(0, 1);
 
   // Normal render
   return (

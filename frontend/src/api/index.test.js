@@ -82,13 +82,25 @@ test("attractions endpoint does not repeat the configured API base", async () =>
   expect(mockApi.post).toHaveBeenCalledWith("/attractions_mock", payload);
 });
 
-test("live itinerary creation keeps the existing endpoint and payload contract", async () => {
+test("itinerary creation maps the form to the supplied backend and normalizes its accepted response", async () => {
   const api = loadApi();
-  const payload = { destination: "Tokyo", travelers: { adults: 2 } };
-  mockApi.post.mockResolvedValue({ data: { success: true, data: { id: "trip-id" } } });
+  const payload = { destination: "Tokyo", startDate: "2027-03-10", endDate: "2027-03-12", travelers: { adults: 2 }, budget: 2 };
+  mockApi.post.mockResolvedValue({ data: { itineraryId: "trip-id" } });
 
-  await expect(api.createTrip(payload)).resolves.toMatchObject({ success: true });
-  expect(mockApi.post).toHaveBeenCalledWith("/trips/setup", payload);
+  await expect(api.createTrip(payload)).resolves.toMatchObject({ success: true, data: { id: "trip-id" } });
+  expect(mockApi.post).toHaveBeenCalledWith("/itineraries", expect.objectContaining({
+    destinationCity: "Tokyo", startDate: "2027-03-10T00:00:00Z", endDate: "2027-03-12T00:00:00Z", numberOfTravelers: 2,
+  }));
+  expect(mockApi.post.mock.calls[0][1]).not.toHaveProperty("budgetLimitCents");
+});
+
+test("saved plans return null only for an absent plan", async () => {
+  const api = loadApi();
+  mockApi.get.mockRejectedValueOnce({ response: { status: 404 } });
+  await expect(api.getSavedPlan("trip-id")).resolves.toBeNull();
+  const error = { response: { status: 403 } };
+  mockApi.get.mockRejectedValueOnce(error);
+  await expect(api.getSavedPlan("trip-id")).rejects.toBe(error);
 });
 
 test("legacy sample plan helper is disabled in normal API mode", async () => {

@@ -1,32 +1,56 @@
-# Trip Mate — Frontend
+# TripMate
 
-The React frontend for a collaborative AI travel planning project. This repository covers the frontend work completed with teammates: UI, Google Maps integration, authentication state and REST API integration.
+A collaborative AI travel planning project for exploring destinations and organizing itineraries. My role was a frontend contributor. This repository bundles the frontend and an adapted backend for local use.
 
-The backend implementation is outside this repository's scope. A separate backend source folder is not required for this frontend contribution.
+**React · Material UI · React Router · Maps · Axios · JWT · Spring Boot · PostgreSQL**
 
-## Source layout
+![TripMate home page](docs/images/home.png)
 
-- `frontend/src/`: React pages, components, custom hooks, authentication and API services.
-- `frontend/public/mock/`: development fixtures.
-- `frontend/openapi.yaml`: the API contract snapshot supplied with the project.
-- `frontend/.env.local.example`: configuration variable names with no real credentials.
+## Demo
 
-## Local setup
+**[Watch the TripMate demo](https://drive.google.com/file/d/17lyaDc0OAWPabyi8NmhXFo9hxAQFaxwW/view?usp=sharing)**
 
-From `frontend/`, install dependencies with `npm ci`, copy `.env.local.example` to `.env.local`, and configure the team's API base and Google Maps browser key. Then run `npm start`.
+## Project features
 
-The default API base is `/api`; the CRA development proxy targets `http://localhost:8080`. Supply `REACT_APP_API_BASE` when using a different backend. Configure hosting to route frontend pages and API requests appropriately in production.
+- Search destinations and explore attractions on an interactive map.
+- Set travel dates, travelers, budget and preferences.
+- Register, sign in and access protected pages using JWT authentication.
+- Browse trip plans, pin places of interest and display generated daily itineraries through the team API.
 
-Run `npm test -- --watchAll=false --runInBand` for mocked frontend regression tests, and `npm run build` for a production bundle. Real environment files, dependency folders and generated builds remain ignored.
+![TripMate daily itinerary with selected attractions on the map](docs/images/itinerary-map.png)
 
-## Development fixtures
+<details>
+<summary>View trip setup and preferences</summary>
 
-`REACT_APP_USE_MOCK_DATA=false` is the default. Enable it explicitly only when allowing development fixture fallbacks for selected itinerary queries. Authentication and permission errors are never replaced by mock success data.
+| Travel dates | Travel preferences |
+| --- | --- |
+| <a href="docs/images/trip-setup.png"><img src="docs/images/trip-setup.png" alt="Travel date selection and trip summary" width="400" /></a> | <a href="docs/images/trip-preferences.png"><img src="docs/images/trip-preferences.png" alt="Travel style and transportation preferences" width="400" /></a> |
 
-## Review status
+</details>
 
-The frontend source is present. Its scope is distinct from a full-stack repository. Focused frontend fixes and regression tests are included; see [前端检查说明](前端检查说明.zh-CN.md) for concrete findings and verification results. This review does not claim that a live team backend or Google Maps account has been tested.
+## Local demo
 
-## Verification
+With Docker Desktop running, copy `.env.example` to `.env`, choose a local database password, then:
 
-On 2026-11-04, all 43 mocked frontend regression tests passed across 8 suites. Date tests also passed in both Los Angeles and Shanghai time zones. The production build succeeded with `CI=true` and no code lint warnings. Dependency metadata notices remain; no dependencies were upgraded. A live team backend and Google Maps account were not contacted.
+```sh
+docker compose up --build
+```
+
+Open [localhost:8080](http://localhost:8080), register an account and create a trip. `docker compose down` stops the app while retaining the database.
+
+The demo uses the project's sample San Francisco attractions, a key-free OpenStreetMap map and deterministic daily schedules. Accounts, trips, selected places and plans are saved in PostgreSQL. No Google or OpenAI key is needed; sample schedules are not AI-generated.
+
+Without Docker: use Node.js 22, JDK 21 and PostgreSQL, configure the database in `.env`, and run `./scripts/run-demo.sh`. The React build and API are served together on port 8080. Live-mode configuration is described in [backend notes](backend/README.md).
+
+## Tests and build
+
+From `frontend/`:
+
+```sh
+npm test -- --watchAll=false --runInBand
+npm run build
+```
+
+Backend checks: `cd backend && ./gradlew test`. See [verification notes](前端检查说明.zh-CN.md) for the local integration checks and remaining scope.
+
+Backend adapted from [TravelPlannerBackend](https://github.com/Touricks/TravelPlannerBackend) (© 2025 Touricks), under the [MIT License](backend/LICENSE).
